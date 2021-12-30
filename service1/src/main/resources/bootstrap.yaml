@@ -1,0 +1,25 @@
+server:
+  port: 56010
+spring:
+  application:
+    name: service1
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.128:8848
+      config:
+        #enabled: false #关闭配置
+        server-addr: 192.168.44.128:8848    #nacos服务地址
+        #file-extension: yaml    #dataId 的名字就是 application name +file extension =service1.yaml
+        namespace: 4a07ffa1-81dd-4cd4-a0bb-f3921d1a6537    #命名空间
+        #group: DEFAULT_GROUP    #测试分组
+        ext-config[0]:
+          data-id: service1.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+        ext-config[1]:
+          data-id: service2.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+
